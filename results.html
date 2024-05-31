@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        #results-container {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #view-courses-btn {
+            padding: 10px 30px;
+            font-size: 18px;
+        }
+
+        #view-courses-btn:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <div id="results-container">
+            <p id="score"></p>
+            <button id="view-courses-btn" class="btn btn-primary">View Recommended Courses</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const score = localStorage.getItem('quizScore');
+            const totalQuestions = localStorage.getItem('totalQuestions');
+            document.getElementById('score').innerText = `Your score: ${score}/${totalQuestions}`;
+
+            document.getElementById('view-courses-btn').addEventListener('click', () => {
+                if (score / totalQuestions <= 0.25) {
+                    window.location.href = 'course0.html';
+                } else if (score / totalQuestions <= 0.70) {
+                    window.location.href = 'course25.html';
+                } else {
+                    window.location.href = 'course70.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

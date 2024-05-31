@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Computer Science Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Internal CSS for styling */
+        .navbar {
+    background-color: #007bff !important;
+    border-bottom: 2px solid #0056b3;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3 !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff !important;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-toggler:hover {
+    background-color: #0056b3 !important;
+}
+
+.navbar-toggler:focus .navbar-toggler-icon {
+    background-color: #0056b3 !important;
+}
+        .jumbotron {
+            background: url('https://cdn.pixabay.com/photo/2018/03/27/17/25/network-3264791_960_720.jpg') center center; /* Introducing section background image */
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 150px 0;
+            margin-bottom: 0;
+        }
+        .advantages-section {
+            padding: 50px 0;
+            background-color: #f8f9fa; /* Background color for advantages section */
+        }
+        .footer {
+            background-color: #343a40; /* Footer background color */
+            color: #ffffff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .review-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        img{
+            border-radius: 50vh;
+        }
+        .jumbotron a.btn img {
+    width: 80%;
+    border-radius: 500px;
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.jumbotron a.btn:hover img {
+    filter: blur(3px);
+}
+
+.jumbotron a.btn::before {
+    content: "Click to test your knowledge";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.jumbotron a.btn:hover::before {
+    opacity: 1;
+}
+/* CSS for headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">SMART LMES</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#advantages">Advantages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4" style="color: #000000; font-weight: bold; font-style: italic;">Welcome to SMART LMES</h1>
+            <p class="lead" style="color: #000000;">Test your knowledge and improve your skills in Python programming and computer science fundamentals. </p>
+            <p class="lead" style="color: black; font-weight: bold;"> Click the image below.</p>
+            <a href="questions.html"><img src="https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-02/54629beb-7788-4520-9b95-a01c6f257bf1.jpg" alt="Start Quiz" class="btn btn-lg" style="width: 80%; border-radius: 500px;"></a> <!-- Quiz button image -->
+            <div class="mt-5">
+                <h2>Why Choose Our Quiz?</h2>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <img src="https://i.pinimg.com/originals/aa/e5/9b/aae59b9f528f505da531ca9b500f9764.jpg" alt="Point 1" class="img-fluid" style="border-radius:50vh ;">
+                        <p style="color: #000000;">Comprehensive and well-structured questions</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://images.shiksha.com/mediadata/images/articles/1619777172phpMlFbJ7.jpeg" alt="Point 2" class="img-fluid" style="border-radius: 50vh;">
+                        <p style="color: black;">Immediate feedback after each question</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://technologyicalword.files.wordpress.com/2019/03/emerging-tech-trends-in-2018.jpg?w=769" alt="Point 3" class="img-fluid" style="border-radius: 50vh;">
+                        <p style="color: black;">Personalized course recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot" class="jumbotron text-center" style="margin-top: -200px;">
+        <div class="container">
+            <h2 class="mb-4">Interactive Chatbot</h2>
+            <p class="lead mb-4" style="color: black;">Chat with our friendly chatbot to get instant assistance and answers to your questions!</p>
+            <a href="chatbot.html"><img src="https://images.ctfassets.net/ukazlt65o6hl/1rWCLaP3w1iMUSkZsg9dG4/ab39b7646762b37b2296c07ae08182ff/MicrosoftTeams-image__55_.png?w=750&h=386&fl=progressive&q=70&fm=jpg" alt="Chatbot" class="img-fluid rounded-circle mb-4"></a>
+            <p style="color: black;">Our chatbot is available 24/7 to help you with any queries you may have.</p>
+        </div>
+    </section>
+
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Advantages of Our Application</h2>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <img src="https://www.pnnl.gov/sites/default/files/styles/hero_1600x1200/public/media/image/computingdata_0.jpg?h=39b07655&itok=2J6BTU7d" alt="Advantage 1" class="img-fluid">
+                            <p>Assesses your current knowledge level</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://miro.medium.com/v2/resize:fit:1400/1*sbfWEmQUoI5vIlCtcdBnXw@2x.jpeg" alt="Advantage 2" class="img-fluid">
+                            <p>Identifies areas for improvement</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://tryengineering.org/wp-content/uploads/bigstock-Future-Artificial-Intelligence-366858865-1024x576.jpg" alt="Advantage 3" class="img-fluid">
+                            <p>Provides tailored course recommendations</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://www.theknowledgeacademy.com/_files/images/7_Most__Advanced_Technology_trends_of_2023.png" alt="Advantage 4" class="img-fluid">
+                            <p>Enhances your learning experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>How We Can Make Engineering Students Better?</h2>
+                    <img src="https://timesproweb-static-backend-prod.s3.ap-south-1.amazonaws.com/Blog_Page_On_Computer_Science_Project_Ideas_ae8cbb3736.webp" alt="Engineering Students" class="img-fluid mt-4">
+                    <p class="mt-3">By offering a comprehensive assessment tool and personalized learning recommendations, we aim to empower engineering students to excel in their studies and career.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h2 style="color: #ffffff;">About Us</h2>
+                    <p>We are dedicated to providing innovative solutions for learning and skill development in the field of computer science.</p>
+                    <p>Location: Your Location</p>
+                </div>
+                <div class="col-md-6 text-left">
+                    <div class="review-form">
+                        <h3  style="color: white;">Leave a Review</h3>
+                        <!-- Review Form (to be implemented) -->
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" placeholder="Your Review"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p class="mt-3">© 2024 Smart LMES. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Smooth Scrolling Effect JavaScript -->
+    <script>
+        $(document).ready(function(){
+            // Add smooth scrolling to all links
+            $("a").on('click', function(event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+                    // Store hash
+                    var hash = this.hash;
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+</body>
+</html>

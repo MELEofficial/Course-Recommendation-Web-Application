@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Educational ChatBot</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #chat-container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        #chat-history {
+            margin-bottom: 20px;
+        }
+        .user-message, .bot-response {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .bot-response {
+            background-color: #e9ecef;
+            color: black;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4">Chat with Educational ChatBot</h1>
+                <div id="chat-container">
+                    <div id="chat-history"></div>
+                </div>
+                <form id="message-form" class="form-inline">
+                    <input type="text" id="user-input" class="form-control mr-2 flex-grow-1" placeholder="Type your message...">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatHistory = document.getElementById('chat-history');
+            const messageForm = document.getElementById('message-form');
+            const userInput = document.getElementById('user-input');
+
+            messageForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const userMessage = userInput.value.trim();
+                if (userMessage === '') return;
+
+                // Display user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.textContent = `You: ${userMessage}`;
+                userMessageDiv.className = 'user-message';
+                chatHistory.appendChild(userMessageDiv);
+
+                // Generate bot response
+                const botResponse = getBotResponse(userMessage);
+
+                // Display bot response
+                const botResponseDiv = document.createElement('div');
+                botResponseDiv.textContent = `Educational ChatBot: ${botResponse}`;
+                botResponseDiv.className = 'bot-response';
+                chatHistory.appendChild(botResponseDiv);
+
+                // Clear input field
+                userInput.value = '';
+
+                // Scroll to bottom of chat history
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            });
+        });
+
+        function getBotResponse(userMessage) {
+            // Simple logic to generate bot responses based on user input
+            const greetings = ['Hello!', 'Hi there!', 'Greetings!', 'Hey!'];
+            const computerResponses = {
+                'HTML': 'HTML stands for Hypertext Markup Language.',
+                'CSS': 'CSS stands for Cascading Style Sheets.',
+                'JavaScript': 'JavaScript is a programming language commonly used for web development.',
+                'Python': 'Python is a popular programming language known for its simplicity and versatility.',
+                'Machine Learning': 'Machine learning is a subset of artificial intelligence that focuses on the development of algorithms that allow computers to learn from and make predictions based on data.',
+                'Data Science': 'Data science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data.',
+                'Neural Networks': 'Neural networks are a set of algorithms, modeled loosely after the human brain, that are designed to recognize patterns.',
+                'Blockchain': 'Blockchain is a decentralized, distributed ledger technology that records the provenance of a digital asset.',
+                'Cybersecurity': 'Cybersecurity refers to the practice of protecting systems, networks, and programs from digital attacks.',
+                'Cloud Computing': 'Cloud computing is the delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud") to offer faster innovation, flexible resources, and economies of scale.',
+            };
+            const defaultResponse = "Sorry, I'm not trained enough. I need more data.";
+
+            // Check for greetings in user input
+            if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
+                return greetings[Math.floor(Math.random() * greetings.length)];
+            }
+
+            // Check for computer-related keywords in user input
+            for (const keyword in computerResponses) {
+                if (userMessage.toLowerCase().includes(keyword.toLowerCase())) {
+                    return computerResponses[keyword];
+                }
+            }
+
+            // If no specific response, return default response
+            return defaultResponse;
+        }
+    </script>
+</body>
+</html>
